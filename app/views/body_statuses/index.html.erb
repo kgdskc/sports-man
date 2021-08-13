@@ -1,4 +1,5 @@
 <h2>BODY_STATUS</h2>
+<td>体重：<%= @body_statuses.weight %></td>
 <table>
   <tbody>
     <% if @body_status %>
@@ -10,6 +11,12 @@
         <td>電話番号：</td>
         <td><%= current_user.phone_number %></td>
       </tr>
+      <tr>
+        <td>本日のSTATUS　</td>
+        <!--<td>体重：<%# @body_statuses.weight %></td>-->
+      </tr>
     <% end %>
   </tbody>
 </table>
+<%= link_to "本日のSTATUSを入力する", new_body_status_path %>
+<%= link_to "カレンダー", calenders_path %>
