@@ -7,8 +7,29 @@
     推定摂取カロリー：<em>（<%= @menu.estimation_ingestion_cal %> kcal）</em>
   </p>
   <p>献立名：<%= @menu.menu_name %></p>
-   <p>投稿日時：<%= @menu.created_at.strftime('%Y/%m/%d') %></p>
+    <p>投稿日時：<%= @menu.created_at.strftime('%Y/%m/%d') %></p>
+
+    <div class="comments">　<!--#コメント表示用の記述-->
+      <p>コメント件数：<%= @menu.menu_comments.count %></p>
+      <% @menu.menu_comments.each do |menu_comment| %>
+        <%= menu_comment.user.name %>
+        <%= menu_comment.created_at.strftime('%Y/%m/%d') %></br>
+        <%= menu_comment.comment %>
+        <% if @menu.user == current_user %>
+          <div class="comment-delete">
+            <%= link_to "コメントの削除", menu_menu_comment_path(@menu, menu_comment), method: :delete %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="new-comment">　<!--コメント入力用の記述-->
+      <%= form_with(model:[@menu, @menu_comment], url:menu_menu_comments_path(@menu), local: true) do |f| %>
+        <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+        <%= f.submit "コメントする" %>
+      <% end %>
+    </div>
 </div>
+
 <% if @menu.user == current_user %>
   <%= link_to "投稿を編集する", edit_menu_path %>
   <%= link_to "投稿を削除する", menu_path(@menu), method: :delete %>

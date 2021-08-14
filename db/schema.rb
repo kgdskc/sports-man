@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_13_092157) do
+ActiveRecord::Schema.define(version: 2021_08_14_085450) do
 
   create_table "body_statuses", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -18,6 +18,21 @@ ActiveRecord::Schema.define(version: 2021_08_13_092157) do
     t.integer "ingestion_cal"
     t.integer "consumed_cal"
     t.date "record_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "menu_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "menu_comments", force: :cascade do |t|
+    t.text "comment", null: false
+    t.integer "user_id", null: false
+    t.integer "menu_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

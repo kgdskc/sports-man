@@ -12,5 +12,10 @@ Rails.application.routes.draw do
   get 'body_statuses/calenders' => 'body_statuses#calender_index', as: 'calenders'
   get 'body_statuses/calenders/:id' => 'body_statuses#calender_show', as: 'calender'
   
-  resources :menus
+  resources :menus do
+    #↓投稿に対するいいね♡
+    resource :favorites, only: [:create, :destroy]
+    #↓投稿に対するコメント
+    resources :menu_comments, only: [:create, :destroy]
+  end
 end

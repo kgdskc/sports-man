@@ -14,6 +14,7 @@
         推定摂取カロリー：<em>（<%= menu.estimation_ingestion_cal %> kcal）</em>
       </p>
       <p>献立名：<%= menu.menu_name %></p>
+      <p><%= link_to "#{menu.menu_comments.count} 件のコメント", menu_path(menu.id) %></p>
     </div>
   <% end %>
 <% end %>
