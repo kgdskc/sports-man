@@ -2,6 +2,7 @@
 <h3><%= current_user.name %></h3>
 <%= link_to "新規投稿", new_menu_path %>
 <%= link_to "マイページ", user_path(current_user) %>
+<%= link_to "みんなの献立", search_path %>
 <% @menus.each do |menu| %>
   <% if menu.user == current_user %>
     <div>
@@ -15,7 +16,12 @@
       </p>
       <p>献立名：<%= menu.menu_name %></p>
       <p><%= link_to "#{menu.menu_comments.count} 件のコメント", menu_path(menu.id) %></p>
+      <%= link_to menu_path(menu.id) do %>
+        <%= menu.favorites.count %>いいね
+      <% end %>
     </div>
   <% end %>
 <% end %>
+
+<%= paginate @menus %>　<!--kaminariページング機能-->
 

@@ -22,6 +22,21 @@
         <% end %>
       <% end %>
     </div>
+    
+    <% if @menu.favorited_by?(current_user) %>　<!--いいね表示用の記述-->
+      <p>
+        <%= link_to menu_favorites_path(@menu), method: :delete do %>
+          ♥<%= @menu.favorites.count %>
+        <% end %>
+      </p>
+    <% else %>
+      <p>
+        <%= link_to menu_favorites_path(@menu), method: :post do %>
+          ♡<%= @menu.favorites.count %>
+        <% end %>
+      </p>
+    <% end %>
+    
     <div class="new-comment">　<!--コメント入力用の記述-->
       <%= form_with(model:[@menu, @menu_comment], url:menu_menu_comments_path(@menu), local: true) do |f| %>
         <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>

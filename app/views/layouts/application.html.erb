@@ -11,6 +11,10 @@
 
   <body>
     <%= yield %>
-    <li class="nav"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+    <% if user_signed_in? %>
+      <li class="nav"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      <li class="nav"><%= link_to "お問い合わせ", new_contact_path %></li>
+      <li class="nav"><%= link_to "マイページ", user_path(current_user.id) %></li>
+    <% end %>
   </body>
 </html>

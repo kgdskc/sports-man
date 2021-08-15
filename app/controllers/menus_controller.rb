@@ -1,6 +1,6 @@
 class MenusController < ApplicationController
   def index
-    @menus = Menu.all
+    @menus = Menu.page(params[:page]).reverse_order
   end
 
   def new
@@ -33,6 +33,12 @@ class MenusController < ApplicationController
     @menu = Menu.find(params[:id])
     @menu.destroy
     redirect_to menus_path
+  end
+  
+  def search
+    @menus = Menu.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "search"
   end
 
   private
