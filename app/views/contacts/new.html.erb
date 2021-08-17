@@ -1,9 +1,30 @@
 <%= form_with(model: @contact, url: confirm_path, local: true) do |f| %>
   <div class="form-group">
+    <strong><%= f.label :subject, "お問い合わせカテゴリー", class: "row" %></strong><br>
+    <%= f.radio_button :subject, :質問, checked: true %>
+    <%= f.label :質問 %> <br>
+    <%= f.radio_button :subject, :不具合・バグ %>
+    <%= f.label :不具合・バグ %><br>
+    <%= f.radio_button :subject, :ご意見・ご要望 %>
+    <%= f.label :ご意見・ご要望 %><br>
+    <%= f.radio_button :subject, :その他 %>
+    <%= f.label :その他 %><br>
+  </div>
+  <div class="form-group">
     <%= f.label :name, 'お名前' %>
     <%= f.text_field :name, autofocus: true, class: 'form-control' %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :phone_number, '電話番号' %>
+    <%= f.text_field :phone_number, size: '10x10', class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :email, 'メールアドレス' %>
+    <%= f.email_field :email, size: '10x10', class: 'form-control' %>
+  </div>
+  
   <div class="form-group">
     <%= f.label :message, 'お問い合わせ内容' %>
     <%= f.text_area :message, size: '10x10', class: 'form-control' %>

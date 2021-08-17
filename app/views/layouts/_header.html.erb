@@ -1,0 +1,22 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="nav navbar-nav ml-auto">
+            <% if user_signed_in? %>
+              <li class="header-name">
+                ようこそ、<%= current_user.name %>さん！
+              </li>
+              <li class="nav"><%= link_to "マイページ", user_path(current_user.id), class: "nav-link navbar-light" %></li>
+              <!--<li class="nav"><%# link_to "BODY_STATUS", body_statuses_path, class: "nav-link navbar-light" %></li>-->
+              <li class="nav"><%= link_to "投稿一覧", menus_path, class: "nav-link navbar-light" %></li>
+              <li class="nav"><%= link_to "お問い合わせ", new_contact_path, class: "nav-link navbar-light" %></li>
+              <li class="nav"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link navbar-light" %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+ </header>

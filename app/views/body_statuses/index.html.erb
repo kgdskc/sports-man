@@ -1,5 +1,5 @@
 <h2>BODY_STATUS</h2>
-<td>体重：<%= @body_statuses.weight %></td>
+<td>体重：<%# body_statuses.weight %></td>
 <table>
   <tbody>
     <% if @body_status %>
@@ -12,7 +12,7 @@
         <td><%= current_user.phone_number %></td>
       </tr>
       <tr>
-        <td>本日のSTATUS　</td>
+        <td>本日のSTATUS</td>
         <!--<td>体重：<%# @body_statuses.weight %></td>-->
       </tr>
     <% end %>

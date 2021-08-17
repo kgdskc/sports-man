@@ -26,14 +26,14 @@
 
 <br>
 
-<%= link_to '日記をかく', new_blog_path %>
+<%#= link_to '日記をかく', new_blog_path %>
 
-<%= month_calendar events: @blogs do |date, blogs| %>
+<%= month_calendar events: @body_statuses do |date, body_statuses| %>
   <%= date.day %>
 
-  <% blogs.each do |blog| %>
+  <% body_statuses do |body_statuses| %>
     <div>
-      <%= link_to blog.title, blog %>
+      <%= link_to body_statuses.title, body_statuses %>
     </div>
   <% end %>
 <% end %>

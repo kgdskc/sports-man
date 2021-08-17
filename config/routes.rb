@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   #↓検索機能
   get 'search' => 'menus#search'
-  
+
   resources :menus do
     #↓投稿に対するいいね♡
     resource :favorites, only: [:create, :destroy]
@@ -27,5 +27,5 @@ Rails.application.routes.draw do
   post 'contacts/confirm' => 'contacts#confirm', as: 'confirm'
   post 'contacts/back' => 'contacts#back', as: 'back'
   get 'done' => 'contacts#done', as: 'done'
-  
+
 end

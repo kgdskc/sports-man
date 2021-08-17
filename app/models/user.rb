@@ -4,20 +4,20 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  # has_many :body_statuses, dependent: :destroy　
-  # has_many :menus, dependent: :destroy
-  # 　#↓コメントのアソシエーション
-  # has_many :menu_comments, dependent: :destroy
-  # 　#↓いいね機能のアソシエーション
-  # has_many :favorites, dependent: :destroy
+  has_many :body_statuses, dependent: :destroy
+  has_many :menus, dependent: :destroy
+  #↓コメントのアソシエーション
+  has_many :menu_comments, dependent: :destroy
+  #↓いいね機能のアソシエーション
+  has_many :favorites, dependent: :destroy
   
-  #   #↓フォロワーFKの参照先
-  # has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
-  # has_many :followers, through: :reverse_of_relationships, source: :follower
+    #↓フォロワーFKの参照先
+  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :followers, through: :reverse_of_relationships, source: :follower
   
-  #   #↓フォローFKの参照先
-  # has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  # has_many :followings, through: :relationships, source: :followed
+    #↓フォローFKの参照先
+  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :followings, through: :relationships, source: :followed
   
          
   #フォロー・フォロワー用の記述
