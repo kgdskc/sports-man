@@ -1,6 +1,8 @@
 class MenusController < ApplicationController
   def index
-    @menus = Menu.page(params[:page]).reverse_order
+    
+    @menus = Menu.includes(:favorited_users).where(user_id: current_user.id).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    @menus = Kaminari.paginate_array(@menus).page(params[:page])
   end
 
   def new
@@ -34,9 +36,10 @@ class MenusController < ApplicationController
     @menu.destroy
     redirect_to menus_path
   end
-  
+  #↓検索アクション（いいね数の数でソートしています）
   def search
-    @menus = Menu.search(params[:keyword])
+    @menus = Menu.search(params[:keyword]).includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    @menus = Kaminari.paginate_array(@menus).page(params[:page])
     @keyword = params[:keyword]
     render "search"
   end

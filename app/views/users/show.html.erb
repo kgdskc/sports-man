@@ -2,6 +2,7 @@
 <h3>登録情報</h3>
 <% if @user == current_user %>
   <%= link_to "マイページを編集する", edit_user_path(@user) %>
+  <%= link_to "いいねした投稿", user_likes_path(@user) %>
 <% end %>
 <table>
   <tbody>

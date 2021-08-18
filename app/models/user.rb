@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :menu_comments, dependent: :destroy
   #↓いいね機能のアソシエーション
   has_many :favorites, dependent: :destroy
+  has_many :favorited_menus, through: :favorites, source: :menu
   
     #↓フォロワーFKの参照先
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
