@@ -1,6 +1,5 @@
 class MenusController < ApplicationController
   def index
-    
     @menus = Menu.includes(:favorited_users).where(user_id: current_user.id).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
     @menus = Kaminari.paginate_array(@menus).page(params[:page])
   end

@@ -11,10 +11,18 @@
       <td><%= @user.name %></td>
     </tr>
     <tr>
-      <td>フォロー：</td>
+      <td>
+        <%= link_to user_followings_path(@user) do %>
+          フォロー：<%= @user.followings.count %>
+        <% end %>
+      </td>
     </tr>
     <tr>
-      <td>フォロワー：</td>
+      <td>
+        <%= link_to user_followers_path(@user) do %>
+          フォロワー：<%= @user.followers.count %>
+        <% end %>
+      </td>
     </tr>
     <% if @user == current_user %>
       <tr>
@@ -25,6 +33,8 @@
         <td>電話番号：</td>
         <td><%= current_user.phone_number %></td>
       </tr>
+    <% else %
+      <%= render 'relationships/follow_btn', user: @user %>
     <% end %>
   </tbody>
 </table>

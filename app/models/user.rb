@@ -21,7 +21,7 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   
          
-  #フォロー・フォロワー用の記述
+  #フォロー・フォロワーコントローラーで使うメソッドを定義
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end

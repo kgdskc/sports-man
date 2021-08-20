@@ -16,9 +16,9 @@
     </p>
     <p>献立名：<%= menu.menu_name %></p>
     <p><%= link_to "#{menu.menu_comments.count} 件のコメント", menu_path(menu.id) %></p>
-    <%= link_to menu_path(menu.id) do %>
-      <%= menu.favorites.count %>いいね
-    <% end %>
+    <div class="favorite-btn_<%= menu.id %>">
+      <%= render 'favorites/favorite-btn', menu: menu %>
+    </div>
   </div>
 <% end %>
 <%= paginate @menus %> <!--kaminariページング機能-->
