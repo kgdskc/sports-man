@@ -1,29 +1,25 @@
 class BodyStatusesController < ApplicationController
 
   def index
-    @body_statuses = BodyStatus.all
-    @body_status = current_user
+    @user = current_user
+    @body_status = BodyStatus.where(user_id: current_user.id).order(record_at: :desc).first
   end
 
   def create
+    @body_status = BodyStatus.new(body_status_params)
+    @body_status.user_id = current_user.id
+    @body_status.save
+    redirect_to body_statuses_path
   end
 
   def new
+    @body_status = BodyStatus.new
   end
 
   def edit
   end
 
   def update
-  end
-
-  def calender_index #カレンダー一覧ページ表示
-    byebug
-    @body_statuses = BodyStatus.all
-  end
-
-  def calender_show #カレンダー日付一覧ページ表示
-  byebug
   end
 
   private

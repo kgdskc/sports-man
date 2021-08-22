@@ -1,0 +1,21 @@
+<h2>新規投稿</h2>
+<%= form_with model:@body_status, local:true do |f| %>
+  <dl>
+    
+    <dt><%= f.label :体重 %></dt>
+    <dd><%= f.text_field :weight, placeholder: '0.0' %>kg</dd>
+    
+    <dt><%= f.label :摂取カロリー %></dt>
+    <dd><%= f.text_field :ingestion_cal, placeholder: '摂取カロリー' %>kcal</dd>
+
+    <dt><%= f.label :消費カロリー %></dt>
+    <dd><%= f.text_field :consumed_cal, placeholder: '消費カロリー' %>kcal</dd>
+    
+    <dt><%= f.label :日付 %></dt>
+    <dd><%# f.date_field :record_at, placeholder: '◯月◯日' %></dd>
+    <dd><%= f.date_field :record_at, value: (f.object.record_at || Time.now.strftime("%Y-%m-%d")), placeholder: '◯月◯日' %></dd>
+    
+  </dl>
+  <%= f.submit "STATUS", class: 'btn btn-success btn-lg py-3 col-3 offset-4' %>
+<% end %>
+<%= link_to "投稿一覧", body_statuses_path %>

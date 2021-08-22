@@ -298,7 +298,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
-  font-awesome-sass (~> 5.13)
+  font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails (= 4.3.3)
   kaminari (~> 1.2.1)

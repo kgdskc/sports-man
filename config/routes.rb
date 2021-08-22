@@ -14,8 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :body_statuses,only: [:new,:create,:update,:edit,:index]
-  get 'body_statuses/calenders' => 'body_statuses#calender_index', as: 'calenders'
-  get 'body_statuses/calenders/:id' => 'body_statuses#calender_show', as: 'calender'
+  resources :calenders,only: [:show,:index]
 
   #↓検索機能
   get 'search' => 'menus#search'

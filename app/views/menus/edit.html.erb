@@ -1,19 +1,36 @@
-<h2>投稿編集</h2>
-<%= form_with model:@menu, local:true do |f| %>
-  <dl>
-    <dt><%= f.label :献立画像 %></dt>
-    <dd><%= f.attachment_field :image %></dd>
-    
-    <dt><%= f.label :献立名 %></dt>
-    <dd><%= f.text_field :menu_name, placeholder: '献立名' %></dd>
-    
-    <dt><%= f.label :本文 %></dt>
-    <dd><%= f.text_area :body, placeholder: '本文' %></dd>
-
-    <dt><%= f.label :推定摂取カロリー %></dt>
-    <dd><%= f.text_field :estimation_ingestion_cal, placeholder: '推定摂取カロリー' %></dd>
-    
-  </dl>
-  <%= f.submit "再投稿", class: 'btn btn-success btn-lg py-3 col-3 offset-4' %>
-<% end %>
-<%= link_to "投稿詳細に戻る", menu_path(@menu.id) %>
+<div class = "container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2 class="mt-4 mb-5 head-line title_h2 fas fas fa-edit">投稿編集</h2>
+      <%= form_with model:@menu, local:true do |f| %>
+        <div class="form-group col-md-12">
+          <%= f.label :献立画像, class: "col-md-4 control-label" %>
+          <%= f.attachment_field :image, autofocus: true, autocomplete: "image", class: "col-md-4" %>
+        </div>
+        
+        <div class="form-group col-md-12">
+          <%= f.label :献立名, class: "col-md-4 control-label" %>
+          <%= f.text_field :menu_name, autofocus: true, autocomplete: "menu_name", class: "col-md-4", placeholder: '夏野菜カレー' %>
+        </div>
+        
+        <div class="form-group col-md-12">
+          <%= f.label :本文, class: "col-md-4 control-label" %>
+          <%= f.text_area :body, autofocus: true, autocomplete: "body", class: "col-md-4", placeholder: 'レシピや味など伝えたいことがあれば！' %>
+        </div>
+        
+        <div class="form-group col-md-12">
+          <%= f.label :推定摂取カロリー, class: "col-md-4 control-label" %>
+          <%= f.text_field :estimation_ingestion_cal, autofocus: true, autocomplete: "estimation_ingestion_cal", class: "col-md-4", placeholder: '500kcal' %>
+        </div>
+        
+        <div class="action mt-5">
+          <%= f.submit "編集を保存する", class: "btn btn-success mr-3" %>
+        </div>
+      <% end %>
+      <div class="text-center">
+        <h4 class="mt-5 mb-5 head-line title_h4 fas fa-utensils">
+          <%= link_to "投稿詳細に戻る", menu_path(@menu.id) %>
+        </h4>
+      </div>
+    </div>
+  </div>
