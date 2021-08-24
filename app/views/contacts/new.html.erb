@@ -1,36 +1,55 @@
-<%= form_with(model: @contact, url: confirm_path, local: true) do |f| %>
-  <div class="form-group">
-    <strong><%= f.label :subject, "お問い合わせカテゴリー", class: "row" %></strong><br>
-    <%= f.radio_button :subject, :質問, checked: true %>
-    <%= f.label :質問 %> <br>
-    <%= f.radio_button :subject, :不具合・バグ %>
-    <%= f.label :不具合・バグ %><br>
-    <%= f.radio_button :subject, :ご意見・ご要望 %>
-    <%= f.label :ご意見・ご要望 %><br>
-    <%= f.radio_button :subject, :その他 %>
-    <%= f.label :その他 %><br>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <%= form_with(model: @contact, url: confirm_path, local: true) do |f| %>
+        <h4><%= f.label :subject, "お問い合わせカテゴリー", class: "mt-4 mb-5 head-line title_h4 fas fa-ballot-check" %></h4>
+        <div class="col-md-12 offset-5 text-left mb-5">
+          <div class="form-group col-md-12">
+            <%= f.radio_button :subject, :質問, checked: true %>
+            <%= f.label :質問 %> <br>
+          </div>
+          
+          <div class="form-group col-md-12">
+            <%= f.radio_button :subject, :不具合・バグ %>
+            <%= f.label :不具合・バグ %><br>
+          </div>
+          
+          <div class="form-group col-md-12">
+            <%= f.radio_button :subject, :ご意見・ご要望 %>
+            <%= f.label :ご意見・ご要望 %><br>
+          </div>
+          
+          <div class="form-group col-md-12">
+            <%= f.radio_button :subject, :その他 %>
+            <%= f.label :その他 %><br>
+          </div>
+        </div>
+        
+        <h4 class="mt-4 mb-5 head-line title_h4 fas fa-paper-plane">お問い合わせフォーム</h4>
+        <div class="form-group col-md-12">
+          <%= f.label :name, 'お名前', class: "col-md-4 control-label" %>
+          <%= f.text_field :name, autofocus: true, class: "col-md-4", placeholder: '筋肉太郎' %>
+        </div>
+      
+        <div class="form-group">
+          <%= f.label :phone_number, '電話番号', class: "col-md-4 control-label" %>
+          <%= f.telephone_field :phone_number, size: '10x10', class: "col-md-4 form-control-static", placeholder: '090-1234-5678' %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :email, 'メールアドレス', class: "col-md-4 control-label" %>
+          <%= f.email_field :email, size: '10x10', class: "col-md-4 form-control-static", placeholder: 'sample@example.com' %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :message, 'お問い合わせ内容', class: "col-md-4 control-label" %>
+          <%= f.text_area :message, size: '10x10', class: 'form-control', class: "col-md-4", placeholder: 'お問い合わせ内容をご記入ください' %>
+        </div>
+      
+        <div class="action mt-5 mb-5">
+            <%= f.submit '入力内容確認', class: 'btn btn-outline-secondary btn-lg' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :name, 'お名前' %>
-    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :phone_number, '電話番号' %>
-    <%= f.text_field :phone_number, size: '10x10', class: 'form-control' %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :email, 'メールアドレス' %>
-    <%= f.email_field :email, size: '10x10', class: 'form-control' %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :message, 'お問い合わせ内容' %>
-    <%= f.text_area :message, size: '10x10', class: 'form-control' %>
-  </div>
-
-  <div>
-    <%= f.submit '入力内容確認' %>
-  </div>
-<% end %>
+</div>

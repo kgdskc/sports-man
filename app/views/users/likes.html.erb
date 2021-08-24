@@ -1,19 +1,39 @@
-<p>いいねした投稿一覧</p>
-<% @like_menus.each do |menu| %>
-  <div>
-    <p>ユーザー名：<%= menu.user.name %></p>
-    <%= link_to menu_path(menu.id) do %>
-      <%= attachment_image_tag(menu, :image, size: "200x200") %><br>
-    <% end %>
-    <p>本文：<%= menu.body %></p>
-    <p>
-      推定摂取カロリー：<em>（<%= menu.estimation_ingestion_cal %> kcal）</em>
-    </p>
-    <p>献立名：<%= menu.menu_name %></p>
-    <p><%= link_to "#{menu.menu_comments.count} 件のコメント", menu_path(menu.id) %></p>
-    <%= link_to menu_path(menu.id) do %>
-      <%= menu.favorites.count %>いいね
-    <% end %>
+<div class = "container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="mt-4 mb-5 head-line title_h2 text-center fas fa-heart">いいねした投稿一覧</h2>
+      </div>
+    </div>
   </div>
-<% end %>
-<%= paginate @likes %>
+</div>
+<div class="card-list-container py-5">
+  <% @like_menus.each do |menu| %>
+    <div class="card w-50 mx-auto mt-5 shadow-lg">
+      <%= link_to menu_path(menu.id) do %>
+        <%= attachment_image_tag menu, :image, class:"card-img-top"; %>
+      <% end %>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-10">
+            <p class="card-title">献立名：<%= menu.menu_name %></p>
+            <p class="card-text">本文：<%= menu.body %></p>
+            <p class="card-text">推定摂取カロリー：<%= menu.estimation_ingestion_cal %>kcal</p>
+            <span><i class="fas fa-user"></i> ユーザー名 <%= menu.user.name %> ｜ </span>
+            <span><%= link_to "#{menu.menu_comments.count} 件のコメント", menu_path(menu.id), class:"text-dark" %> ｜ </span>
+            <span class="favorite-btn_<%= menu.id %>">
+              <%= render 'favorites/favorite-btn', menu: menu %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="container">
+  <%= paginate @likes %> <!--kaminariページング機能-->
+</div>
+<div class="text-center">
+  <h4 class="mt-5 mb-5 head-line title_h4 fas fa-utensils">
+    <%= link_to "投稿一覧に戻る", menus_path %>
+  </h4>
+</div>

@@ -25,8 +25,8 @@
       <p>コメント件数：<%= @menu.menu_comments.count %></p>
       <div class="new-comment"> <!--コメント入力用の記述-->
         <%= form_with(model:[@menu, @menu_comment], url:menu_menu_comments_path(@menu), local: true) do |f| %>
-          <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-          <%= f.submit "コメントする" %>
+          <%= f.text_area :comment, size: '10x10', class: 'form-control', class: "col-md-4",placeholder: "コメントを記入してください" %>
+          <%= f.submit "コメントする", class: "btn btn-secondary" %>
         <% end %>
       </div>
       <% @menu.menu_comments.each do |menu_comment| %>
