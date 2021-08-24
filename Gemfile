@@ -69,8 +69,11 @@ gem 'font-awesome-sass'
 gem 'pry-byebug'
 gem 'kaminari','~> 1.2.1'
 gem 'jquery-rails', '4.3.3'
-gem 'simple_calendar', '~> 2.0'
+gem "simple_calendar", "~> 2.4"
 gem "dotenv-rails"
+gem 'rails-i18n', '~> 5.1'
+gem "chartkick"
+gem 'groupdate'
 group :production do
   gem 'mysql2'
 end

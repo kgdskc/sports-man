@@ -16,7 +16,8 @@
  @import "bootstrap";
  @import "font-awesome-sprockets";
  @import "font-awesome";
- 
+ @import "simple_calendar";
+
 // @font-face {
 //   font-family: 'SoukouMincho';
 //   src:  asset_url('/assets/SoukouMincho.ttf') format("truetype");
@@ -29,5 +30,5 @@
 // }
 
 .photo-size {
-  height: 100px; 
+  height: 100px;
 }

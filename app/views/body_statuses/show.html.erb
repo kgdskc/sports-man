@@ -1,0 +1,18 @@
+<h3>STATUS詳細</h3>
+<table>
+  <tbody>
+    <tr>
+      <td>最新入力日時：<%= @body_status.record_at %></td>
+    </tr>
+    <tr>
+      <td>体重：<%= @body_status.weight %> kg</td>
+    </tr>
+    <tr>
+      <td>摂取カロリー：<%= @body_status.ingestion_cal %> kcal</td>
+    </tr>
+    <tr>
+      <td>消費カロリー：<%= @body_status.consumed_cal %> kcal</td>
+    </tr>
+  </tbody>
+</table>
+<%= link_to "カレンダー", calendars_path %>

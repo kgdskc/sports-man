@@ -13,8 +13,8 @@ Rails.application.routes.draw do
     get 'followers' => 'relationships#followers', as: 'followers'
   end
 
-  resources :body_statuses,only: [:new,:create,:update,:edit,:index]
-  resources :calenders,only: [:show,:index]
+  resources :body_statuses
+  resources :calendars,only: [:index]
 
   #↓検索機能
   get 'search' => 'menus#search'

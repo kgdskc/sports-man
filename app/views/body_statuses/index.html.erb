@@ -1,24 +1,35 @@
 <h2>BODY_STATUS</h2>
-<td>体重：<%# body_statuses.weight %></td>
 <% if @user %>
   <table>
     <tbody>
-      <tr>
-        <td>生年月日：</td>
-        <td><%= current_user.birthdate %></td>
-      </tr>
-      <tr>
-        <td>電話番号：</td>
-        <td><%= current_user.phone_number %></td>
-      </tr>
       <% if !@body_status.nil? %>
+        <h3>本日のSTATUS</h3>
         <tr>
-          <td>本日のSTATUS</td>
-          <td>体重：<%= @body_status.weight %></td>
+          <td>最新入力日時：<%= @body_status.record_at %></td>
+        </tr>
+        <tr>
+          <td>体重：<%= @body_status.weight %> kg</td>
+        </tr>
+        <tr>
+          <td>摂取カロリー：<%= @body_status.ingestion_cal %> kcal</td>
+        </tr>
+        <tr>
+          <td>消費カロリー：<%= @body_status.consumed_cal %> kcal</td>
         </tr>
       <% end %>
     </tbody>
   </table>
 <% end %>
-<%= link_to "本日のSTATUSを入力する", new_body_status_path %>
-<%= link_to "カレンダー", calenders_path %>
+<% if @body_status && @now == @body_status.record_at %>
+  <%= link_to "本日のSTATUSを更新する", edit_body_status_path(@body_status) %>
+<% else %>
+  <%= link_to "本日のSTATUSを入力する", new_body_status_path %>
+<% end %>
+<%= link_to "カレンダー", calendars_path %>
+<%# line_chart BodyStatus.pluck(:record_at, :consumed_cal) %>
+<%# link_to "先月", and %>
+<br />
+<%= link_to @last_month, body_statuses_path(month: @last_month) %>
+<%= link_to @next_month, body_statuses_path(month: @next_month) %>
+<%= line_chart @weight,height: "400px",xtitle: "日", ytitle: "体重",min: 0, max: 200, curve: true %>
+<%= line_chart @chart,height: "400px",xtitle: "日", ytitle: "消費カロリー",min: 0, max: 10000, curve: true %>

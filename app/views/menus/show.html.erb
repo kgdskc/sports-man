@@ -1,40 +1,49 @@
-<h2>投稿詳細</h2>
-<div>
-  <%= link_to user_path(@menu.user_id) do %>
-    <%= @menu.user.name %>
-  <% end %>
-  <%= attachment_image_tag(@menu, :image, size: "200x200") %><br>
-  <p>本文：<%= @menu.body %></p>
-  <p>
-    推定摂取カロリー：<em>（<%= @menu.estimation_ingestion_cal %> kcal）</em>
-  </p>
-  <p>献立名：<%= @menu.menu_name %></p>
-    <p>投稿日時：<%= @menu.created_at.strftime('%Y/%m/%d') %></p>
-
-    <div class="comments"> <!--#コメント表示用の記述-->
-      <p>コメント件数：<%= @menu.menu_comments.count %></p>
-      <% @menu.menu_comments.each do |menu_comment| %>
-        <%= menu_comment.user.name %>
-        <%= menu_comment.created_at.strftime('%Y/%m/%d') %></br>
-        <%= menu_comment.comment %>
-        <% if @menu.user == current_user %>
-          <div class="comment-delete">
-            <%= link_to "コメントの削除", menu_menu_comment_path(@menu, menu_comment), method: :delete %>
-          </div>
-        <% end %>
-      <% end %>
+<div class = "container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2 class="mt-4 mb-5 head-line title_h2 fas fa-hamburger">投稿詳細</h2>
     </div>
-    
+  </div>
+</div>
+<div class="card w-50 mx-auto mt-5 shadow-lg" style="width: 18rem;">
+  <%= attachment_image_tag(@menu, :image) %>
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= link_to user_path(@menu.user_id) do %>
+        <%= @menu.user.name %>
+      <% end %>
+    </h5>
     <div class="favorite-btn_<%= @menu.id %>">
       <%= render 'favorites/favorite-btn', menu: @menu %>
     </div>
+    <p class="card-text"><strong class="card-text">献立名：<%= @menu.menu_name %></strong></p>
+    <p class="card-text"><small class="text-muted">推定摂取カロリー：<%= @menu.estimation_ingestion_cal %>kcal</small></p>
+    <p class="card-text"><small class="text-muted">投稿日時：<%= @menu.created_at.strftime('%Y/%m/%d') %></small></p>
+    <p class="card-text">本文：<%= @menu.body %></p>
     
-    <div class="new-comment"> <!--コメント入力用の記述-->
-      <%= form_with(model:[@menu, @menu_comment], url:menu_menu_comments_path(@menu), local: true) do |f| %>
-        <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-        <%= f.submit "コメントする" %>
+    <div class="comments card-text"> <!--#コメント表示用の記述-->
+      <p>コメント件数：<%= @menu.menu_comments.count %></p>
+      <div class="new-comment"> <!--コメント入力用の記述-->
+        <%= form_with(model:[@menu, @menu_comment], url:menu_menu_comments_path(@menu), local: true) do |f| %>
+          <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+          <%= f.submit "コメントする" %>
+        <% end %>
+      </div>
+      <% @menu.menu_comments.each do |menu_comment| %>
+        <div class="border-top border-bottom pt-3 pb-3">
+          <p class="card-text"><small class="text-muted">コメント者：<%= menu_comment.user.name %><br>
+            コメント日時：<%= menu_comment.created_at.strftime('%Y/%m/%d') %></small>
+          </small></p>
+          <p class="card-text">コメント本文：<br><%= menu_comment.comment %></p>
+          <% if @menu.user == current_user %>
+            <div class="comment-delete">
+              <%= link_to "コメントの削除", menu_menu_comment_path(@menu, menu_comment), method: :delete %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
+  </div>
 </div>
 
 <% if @menu.user == current_user %>

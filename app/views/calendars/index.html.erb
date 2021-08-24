@@ -1,0 +1,13 @@
+<%= month_calendar events: @body_statuses do |date, body_statuses| %>
+  <%# link_to calendar_path(@calendar) do %>
+    <%= date.day %>
+  <%# end %>
+
+  <% body_statuses.each do |body_status| %>
+    <div>
+      <%= link_to body_status_path(body_status) do%>
+        <span>STATUS 確認</span>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

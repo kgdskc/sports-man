@@ -6,14 +6,13 @@
     <dd><%= f.text_field :weight, placeholder: '0.0' %>kg</dd>
     
     <dt><%= f.label :摂取カロリー %></dt>
-    <dd><%= f.text_field :ingestion_cal, placeholder: '摂取カロリー' %>kcal</dd>
+    <dd><%= f.number_field :ingestion_cal, placeholder: '摂取カロリー' %>kcal</dd>
 
     <dt><%= f.label :消費カロリー %></dt>
-    <dd><%= f.text_field :consumed_cal, placeholder: '消費カロリー' %>kcal</dd>
+    <dd><%= f.number_field :consumed_cal, placeholder: '消費カロリー' %>kcal</dd>
     
-    <dt><%= f.label :日付 %></dt>
-    <dd><%# f.date_field :record_at, placeholder: '◯月◯日' %></dd>
-    <dd><%= f.date_field :record_at, value: (f.object.record_at || Time.now.strftime("%Y-%m-%d")), placeholder: '◯月◯日' %></dd>
+    <!--↓日付のフォーム。ユーザーが入力することなく最新の日付にするためhiddenを使用-->
+    <dd><%= f.hidden_field :record_at, value: (f.object.record_at || Time.now.strftime("%Y-%m-%d")), placeholder: '◯月◯日' %></dd>
     
   </dl>
   <%= f.submit "STATUS", class: 'btn btn-success btn-lg py-3 col-3 offset-4' %>

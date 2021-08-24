@@ -15,6 +15,7 @@
           <div class="col-10">
             <p class="card-title">献立名：<%= menu.menu_name %></p>
             <p class="card-text">本文：<%= menu.body %></p>
+            <p class="card-text">推定摂取カロリー：<%= menu.estimation_ingestion_cal %>kcal</p>
             <span><i class="fas fa-user"></i> ユーザー名 <%= menu.user.name %> ｜ </span>
             <span><%= link_to "#{menu.menu_comments.count} 件のコメント", menu_path(menu.id), class:"text-dark" %> ｜ </span>
             <span class="favorite-btn_<%= menu.id %>">
