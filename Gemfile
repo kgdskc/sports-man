@@ -67,7 +67,7 @@ gem "refile-mini_magick"
 gem 'bootstrap', '~> 4.5'
 gem 'font-awesome-sass'
 gem 'pry-byebug'
-gem 'kaminari','~> 1.2.1'
+gem 'kaminari', '~> 1.2.1'
 gem 'jquery-rails', '4.3.3'
 gem "simple_calendar", "~> 2.4"
 gem "dotenv-rails"

@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-  #いいねコントローラー
+  # いいねコントローラー
   def create
     @menu = Menu.find(params[:menu_id])
     favorite = current_user.favorites.new(menu_id: @menu.id)

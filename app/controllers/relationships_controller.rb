@@ -1,5 +1,5 @@
 class RelationshipsController < ApplicationController
-  #↓userモデルで定義したfollow,unfollowメソッドを使用
+  # ↓userモデルで定義したfollow,unfollowメソッドを使用
   def create
     current_user.follow(params[:user_id])
     redirect_to request.referer
@@ -7,10 +7,10 @@ class RelationshipsController < ApplicationController
 
   def destroy
     current_user.unfollow(params[:user_id])
-    redirect_to request.referer  
+    redirect_to request.referer
   end
-  
-  #↓フォロー・フォロワーの一覧ページの表示
+
+  # ↓フォロー・フォロワーの一覧ページの表示
   def followings
     @user = User.find(params[:user_id])
     @users = @user.followings
