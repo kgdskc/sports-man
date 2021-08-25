@@ -74,6 +74,7 @@ gem "dotenv-rails"
 gem 'rails-i18n', '~> 5.1'
 gem "chartkick"
 gem 'groupdate'
+gem 'rubocop-airbnb'
 group :production do
   gem 'mysql2'
 end
