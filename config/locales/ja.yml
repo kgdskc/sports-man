@@ -57,3 +57,29 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+    
+  activerecord:
+    models:
+      menu: メニュー
+    attributes:
+      menu:
+        image: 画像
+        body: 本文
+        estimation_ingestion_cal: 推定摂取カロリー
+        menu_name: 献立名
+        
+      body_status:
+        weight: 体重
+        ingestion_cal: 摂取カロリー
+        consumed_cal: 消費カロリー
+        
+      user:
+        name: 名前
+        birthdate: 生年月日
+        phone_number: 電話番号
+        
+      contact:
+        name: 名前
+        email: メールアドレス
+        phone_number: 電話番号
+        message: お問い合わせ内容

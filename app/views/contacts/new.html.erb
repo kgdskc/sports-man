@@ -24,7 +24,14 @@
             <%= f.label :その他 %><br>
           </div>
         </div>
-        
+        <div class="mb-5">
+          <% if @contact.errors.any? %>
+            <%= @contact.errors.count %>件の未記入があります
+            <% @contact.errors.full_messages.each do |message| %>
+              <strong><p><%= message %></p></strong><br />
+            <% end %>
+          <% end %>
+        </div>
         <h4 class="mt-4 mb-5 head-line title_h4 fas fa-paper-plane">お問い合わせフォーム</h4>
         <div class="form-group col-md-12">
           <%= f.label :name, 'お名前', class: "col-md-4 control-label" %>

@@ -21,14 +21,20 @@ class MenusController < ApplicationController
   def create
     @menu = Menu.new(menu_params)
     @menu.user_id = current_user.id
-    @menu.save
-    redirect_to menus_path
+    if @menu.save
+      redirect_to menus_path
+    else
+      render :new
+    end
   end
 
   def update
     @menu = Menu.find(params[:id])
-    @menu.update(menu_params)
-    redirect_to menus_path
+    if @menu.update(menu_params)
+      redirect_to menus_path
+    else
+      render :edit
+    end
   end
 
   def destroy

@@ -2,6 +2,14 @@
   <div class="row">
     <div class="col-md-12 text-center">
       <h2 class="mt-4 mb-5 head-line title_h2 fas fa-plus-square">新規投稿</h2>
+      <div class="mb-5">
+        <% if @body_status.errors.any? %>
+          <%= @body_status.errors.count %>件の未記入があります
+          <% @body_status.errors.full_messages.each do |message| %>
+            <strong><p><%= message %></p></strong><br />
+          <% end %>
+        <% end %>
+      </div>
       <%= form_with model:@body_status, local:true do |f| %>
         <div class="form-group col-md-12">
           <%= f.label :体重, class: "col-md-4 control-label" %>

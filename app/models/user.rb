@@ -20,7 +20,9 @@ class User < ApplicationRecord
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
   
-         
+  validates :name, presence: true
+  validates :birthdate, presence: true
+  validates :phone_number, presence: true
   #フォロー・フォロワーコントローラーで使うメソッドを定義
   def follow(user_id)
     relationships.create(followed_id: user_id)

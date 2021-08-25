@@ -35,8 +35,11 @@ class BodyStatusesController < ApplicationController
   def create
     @body_status = BodyStatus.new(body_status_params)
     @body_status.user_id = current_user.id
-    @body_status.save
-    redirect_to body_statuses_path
+    if @body_status.save
+      redirect_to body_statuses_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -53,8 +56,11 @@ class BodyStatusesController < ApplicationController
 
   def update
     @body_status = BodyStatus.find(params[:id])
-    @body_status.update(body_status_params)
-    redirect_to body_statuses_path
+    if @body_status.update(body_status_params)
+      redirect_to body_statuses_path
+    else
+      render :edit
+    end
   end
 
   private
