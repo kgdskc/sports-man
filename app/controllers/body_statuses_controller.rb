@@ -1,6 +1,7 @@
 class BodyStatusesController < ApplicationController
 
   def index
+    #↓4~16行目は先月、次月のチャートを表示するための記述
     if params[:month]
       @month = params[:month]
       ar= params[:month].split('-')
@@ -15,8 +16,12 @@ class BodyStatusesController < ApplicationController
     @last_month = date.last_month.strftime("%Y-%m")
 
     @user = current_user
+    
+    #↓最新の日付(record_at)のレコードを取り出す
     @body_status = current_user.body_statuses.where("record_at like ?", "#{@month}%").order(record_at: :desc).first
     @now = Date.today
+    
+    #↓25~30行目はチャートのY軸を二種類用意するための記述
     ingestion_cal = current_user.body_statuses.where("record_at like ?", "#{@month}%").group(:record_at).sum(:ingestion_cal)
     consumed_cal = current_user.body_statuses.where("record_at like ?", "#{@month}%").group(:record_at).sum(:consumed_cal)
     @chart = [

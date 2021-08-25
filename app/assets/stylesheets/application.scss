@@ -18,16 +18,10 @@
  @import "font-awesome";
  @import "simple_calendar";
 
-// @font-face {
-//   font-family: 'SoukouMincho';
-//   src:  asset_url('/assets/SoukouMincho.ttf') format("truetype");
-//   font-weight: normal;
-//   font-style: normal;
-// }
-
-// body {
-//   font-family: 'SoukouMincho';
-// }
+.color {
+    height: 100%;
+    background-color: #EEFFFF;
+}
 
 .photo-size {
   height: 100px;

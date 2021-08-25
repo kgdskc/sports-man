@@ -1,23 +1,29 @@
 <div class="container mt-5">
   <div class="row">
-	  <div class="col-md-10 offset-1">
+	  <div class="col-md-8 offset-2">
       <h2><strong class="subhead_my_page information-link fas fa-users-cog">マイページ</strong></h2>
       <% if @user == current_user %>
-        <div class="mb-3 mt-4">
+        <div class="mb-5 mt-5 ml-3">
           <%= link_to "マイページを編集する", edit_user_path(@user), class: "glyphicon glyphicon-pencil btn btn-success fas fa-user-edit mr-3" %>
           <%= link_to "いいねした投稿", user_likes_path(@user), class: "glyphicon glyphicon-pencil fas fa-heart btn btn-danger mr-3" %>
           <%= link_to "BODY_STATUS", body_statuses_path, class: "glyphicon glyphicon-pencil fas fa-swimmer btn btn-primary mr-3" %>
           <%= link_to "投稿一覧", menus_path, class: "glyphicon glyphicon-pencilfas fas fa-utensils  btn btn-secondary mr-3" %>
         </div>
       <% end %>
-      <table class="table table-bordered table-condensed col-md-6　col-offset-md-3" >
+      <table class="table table-striped" >
         <tbody>
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
           <tr>
-            <th scope="row">ニックネーム</th>
+            <th scope="row">ニックネーム：</th>
             <td><%= @user.name %></td>
           </tr>
           <tr>
-            <th scope="row">フォロー</th>
+            <th scope="row">フォロー：</th>
             <td>
               <%= link_to user_followings_path(@user), class: "fas fa-user-plus" do %>
                 <%= @user.followings.count %>
@@ -25,7 +31,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row">フォロワー</th>
+            <th scope="row">フォロワー：</th>
             <td>
               <%= link_to user_followers_path(@user), class: "fas fa-users" do %>
                 <%= @user.followers.count %>
@@ -34,11 +40,11 @@
           </tr>
           <% if @user == current_user %>
             <tr>
-              <th scope="row">生年月日</th>
+              <th scope="row">生年月日：</th>
               <td><%= current_user.birthdate %></td>
             </tr>
             <tr>
-              <th scope="row">電話番号</th>
+              <th scope="row">電話番号：</th>
               <td><%= current_user.phone_number %></td>
             </tr>
           <% else %>

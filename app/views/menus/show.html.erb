@@ -13,7 +13,7 @@
         <%= @menu.user.name %>
       <% end %>
     </h5>
-    <div class="favorite-btn_<%= @menu.id %>">
+    <div class="favorite-btn_<%= @menu.id %>"> <!--いいね-->
       <%= render 'favorites/favorite-btn', menu: @menu %>
     </div>
     <p class="card-text"><strong class="card-text">献立名：<%= @menu.menu_name %></strong></p>
@@ -29,7 +29,7 @@
           <%= f.submit "コメントする", class: "btn btn-secondary" %>
         <% end %>
       </div>
-      <% @menu.menu_comments.each do |menu_comment| %>
+      <% @menu.menu_comments.each do |menu_comment| %> <!--#新規コメントフォーム-->
         <div class="border-top border-bottom pt-3 pb-3">
           <p class="card-text"><small class="text-muted">コメント者：<%= menu_comment.user.name %><br>
             コメント日時：<%= menu_comment.created_at.strftime('%Y/%m/%d') %></small>
@@ -45,9 +45,16 @@
     </div>
   </div>
 </div>
-
-<% if @menu.user == current_user %>
-  <%= link_to "投稿を編集する", edit_menu_path %>
-  <%= link_to "投稿を削除する", menu_path(@menu), method: :delete %>
-<% end %>
-<%= link_to "投稿一覧", menus_path %>
+<div class="text-center">
+  <% if @menu.user == current_user %>
+      <h4 class="mt-5 mb-5 head-line title_h4 fas fas fa-edit mr-5">
+        <%= link_to "投稿を編集する", edit_menu_path %>
+      </h4>
+      <h4 class="mt-5 mb-5 head-line title_h4 fas fa-trash-alt mr-5">
+        <%= link_to "投稿を削除する", menu_path(@menu), method: :delete %>
+      </h4>
+  <% end %>
+  <h4 class="mt-5 mb-5 head-line title_h4 fas fa-utensils mr-5">
+    <%= link_to "投稿一覧", menus_path %>
+  </h4>
+</div>

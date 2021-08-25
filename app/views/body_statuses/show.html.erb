@@ -1,18 +1,38 @@
-<h3>STATUS詳細</h3>
-<table>
-  <tbody>
-    <tr>
-      <td>最新入力日時：<%= @body_status.record_at %></td>
-    </tr>
-    <tr>
-      <td>体重：<%= @body_status.weight %> kg</td>
-    </tr>
-    <tr>
-      <td>摂取カロリー：<%= @body_status.ingestion_cal %> kcal</td>
-    </tr>
-    <tr>
-      <td>消費カロリー：<%= @body_status.consumed_cal %> kcal</td>
-    </tr>
-  </tbody>
-</table>
-<%= link_to "カレンダー", calendars_path %>
+<div class = "container">
+  <div class="row text-center">
+    <div class="col-md-6 offset-3">
+      <h2 class="mt-4 mb-5 head-line title_h2 fas fa-swimmer">BODY_STATUS</h2>
+        <table class="table table-striped">
+          <tbody>
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tr class="text-left">
+              <th scope="row">最新入力日時：</th>
+              <td><%= @body_status.record_at %></td>
+            </tr>
+            <tr class="text-left">
+              <th scope="row">体重：</th>
+              <td><%= @body_status.weight %> kg</td>
+            </tr>
+            <tr class="text-left">
+              <th scope="row">摂取カロリー：</th>
+              <td><%= @body_status.ingestion_cal %> kcal</td>
+            </tr>
+            <tr class="text-left">
+              <th scope="row">消費カロリー：</th>
+              <td><%= @body_status.consumed_cal %> kcal</td>
+            </tr>
+          </tbody>
+        </table>
+      <div class="text-center">
+        <h4 class="mt-5 mb-5 head-line title_h4 fas fa-calendar-alt">
+          <%= link_to "カレンダーへ戻る", calendars_path %>
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>

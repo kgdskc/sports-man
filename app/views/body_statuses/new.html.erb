@@ -1,20 +1,36 @@
-<h2>新規投稿</h2>
-<%= form_with model:@body_status, local:true do |f| %>
-  <dl>
-    
-    <dt><%= f.label :体重 %></dt>
-    <dd><%= f.text_field :weight, placeholder: '0.0' %>kg</dd>
-    
-    <dt><%= f.label :摂取カロリー %></dt>
-    <dd><%= f.number_field :ingestion_cal, placeholder: '摂取カロリー' %>kcal</dd>
-
-    <dt><%= f.label :消費カロリー %></dt>
-    <dd><%= f.number_field :consumed_cal, placeholder: '消費カロリー' %>kcal</dd>
-    
-    <!--↓日付のフォーム。ユーザーが入力することなく最新の日付にするためhiddenを使用-->
-    <dd><%= f.hidden_field :record_at, value: (f.object.record_at || Time.now.strftime("%Y-%m-%d")), placeholder: '◯月◯日' %></dd>
-    
-  </dl>
-  <%= f.submit "STATUS", class: 'btn btn-success btn-lg py-3 col-3 offset-4' %>
-<% end %>
-<%= link_to "投稿一覧", body_statuses_path %>
+<div class = "container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2 class="mt-4 mb-5 head-line title_h2 fas fa-plus-square">新規投稿</h2>
+      <%= form_with model:@body_status, local:true do |f| %>
+        <div class="form-group col-md-12">
+          <%= f.label :体重, class: "col-md-4 control-label" %>
+          <%= f.number_field :weight, autofocus: true, autocomplete: "weight", class: "col-md-4", placeholder: '00' %> kg
+        </div>
+        
+        <div class="form-group col-md-12">
+          <%= f.label :摂取カロリー, class: "col-md-4 control-label" %>
+          <%= f.number_field :ingestion_cal, autofocus: true, autocomplete: "ingestion_cal", class: "col-md-4", placeholder: '0000' %> kcal
+        </div>
+        
+        <div class="form-group col-md-12">
+          <%= f.label :消費カロリー, class: "col-md-4 control-label" %>
+          <%= f.number_field :consumed_cal, autofocus: true, autocomplete: "consumed_cal", class: "col-md-4", placeholder: '0000' %> kcal
+        </div>
+        <!--↓日付は最新の日付が自動で入力されるようにするため、ユーザーが変更できないように隠しています-->
+        <div>
+          <%= f.hidden_field :record_at, value: (f.object.record_at || Time.now.strftime("%Y-%m-%d")), placeholder: '◯月◯日' %>
+        </div>
+        
+        <div class="action mt-5">
+          <%= f.submit "STATUS", class: "btn btn-primary mr-3" %>
+        </div>
+      <% end %>
+      <div class="text-center">
+        <h4 class="mt-5 mb-5 head-line title_h4 fas fa-swimmer">
+          <%= link_to "BODY_STATUS", body_statuses_path %>
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>

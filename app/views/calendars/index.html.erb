@@ -1,12 +1,9 @@
 <%= month_calendar events: @body_statuses do |date, body_statuses| %>
-  <%# link_to calendar_path(@calendar) do %>
-    <%= date.day %>
-  <%# end %>
-
+  <%= date.day %>
   <% body_statuses.each do |body_status| %>
     <div>
-      <%= link_to body_status_path(body_status) do%>
-        <span>STATUS 確認</span>
+      <%= link_to body_status_path(body_status), class: "glyphicon glyphicon-pencil btn btn-info fas fa-running" do %>
+        <span>STATUS　確認</span>
       <% end %>
     </div>
   <% end %>
