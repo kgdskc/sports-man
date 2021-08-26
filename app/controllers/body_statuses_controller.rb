@@ -17,7 +17,7 @@ class BodyStatusesController < ApplicationController
     @user = current_user
 
     # ↓最新の日付(record_at)のレコードを取り出す
-    @body_status = current_user.body_statuses.where("record_at like ?", "#{@month}%").order(record_at: :desc).first
+    @body_status = current_user.body_statuses.where(user_id: current_user.id).order(record_at: :desc).first
     @now = Date.today
 
     # ↓25~30行目はチャートのY軸を二種類用意するための記述
