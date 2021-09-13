@@ -32,3 +32,4 @@ Rails.application.routes.draw do
   post 'contacts/back' => 'contacts#back', as: 'back'
   get 'done' => 'contacts#done', as: 'done'
 end
+
