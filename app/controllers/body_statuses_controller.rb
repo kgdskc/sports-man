@@ -1,4 +1,5 @@
 class BodyStatusesController < ApplicationController
+  
   def index
     # ↓4~16行目は先月、次月のチャートを表示するための記述
     if params[:month]
@@ -27,7 +28,7 @@ class BodyStatusesController < ApplicationController
       { name: '摂取カロリー', data: ingestion_cal },
       { name: '消費カロリー', data: consumed_cal },
     ]
-    @weight = BodyStatus.where("record_at like ?", "#{@month}%").pluck(:record_at, :weight)
+    @weight = current_user.body_statuses.where("record_at like ?", "#{@month}%").pluck(:record_at, :weight)
   end
 
   def create
@@ -49,7 +50,7 @@ class BodyStatusesController < ApplicationController
   end
 
   def edit
-    @body_status = BodyStatus.find(params[:id])
+    @body_status = current_user.body_statuses.find(params[:id])
   end
 
   def update
