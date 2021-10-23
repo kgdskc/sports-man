@@ -23,7 +23,7 @@
 * テーブル定義書　　　　　　　　　　　　　　　　　　　　　　　　　https://docs.google.com/spreadsheets/d/1xLGNA7lan-ZLC64IlMc-NrsOcEf4fjoTvkYwW9IV0z4/edit?usp=sharing
 * アプリケーション詳細設計　　　　　　　　　　　　　　　　　　　　https://docs.google.com/spreadsheets/d/1vvLLWPpJE3Ec5dG40EenyR6sHrhFJDDDdHaL1rU2xvU/edit?usp=sharing
 * Flows　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　https://drive.google.com/file/d/1w45syS4eBJvnw3lZdqF0x9C34t-U0lIm/view?usp=sharing
-* WBS　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   https://docs.google.com/spreadsheets/d/1VGZLPGPCXisyou4gMPSidGUlBLwkQfdUQgrXN__FE70/edit?usp=sharing
+* WBS　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   https://docs.google.com/spreadsheets/d/1sr2T9_w6q_l-HGWX7cW6rr4gaq5nbG6QOC-r2XRTRH8/edit?usp=sharing
 
 
 ## チャレンジ要素一覧
