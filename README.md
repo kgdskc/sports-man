@@ -18,12 +18,12 @@
 * ダイエット時に過去のデータを確認したい時
 * 低糖質、低カロリーの献立を探す時
 
-<!--## 設計書-->
-<!--* ER図　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　https://drive.google.com/file/d/1Luy-mgTN374k6_tnukdzjDacz2gK_kF3/view?usp=sharing-->
-<!--* テーブル定義書　　　　　　　　　　　　　　　　　　　　　　　　　https://docs.google.com/spreadsheets/d/1xLGNA7lan-ZLC64IlMc-NrsOcEf4fjoTvkYwW9IV0z4/edit?usp=sharing-->
-<!--* アプリケーション詳細設計　　　　　　　　　　　　　　　　　　　　https://docs.google.com/spreadsheets/d/1vvLLWPpJE3Ec5dG40EenyR6sHrhFJDDDdHaL1rU2xvU/edit?usp=sharing-->
-<!--* Flows　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　https://drive.google.com/file/d/1w45syS4eBJvnw3lZdqF0x9C34t-U0lIm/view?usp=sharing-->
-<!--* WBS　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 https://docs.google.com/spreadsheets/d/1VGZLPGPCXisyou4gMPSidGUlBLwkQfdUQgrXN__FE70/edit?usp=sharing-->
+## 設計書
+* ER図　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　https://drive.google.com/file/d/1Luy-mgTN374k6_tnukdzjDacz2gK_kF3/view?usp=sharing
+* テーブル定義書　　　　　　　　　　　　　　　　　　　　　　　　　https://docs.google.com/spreadsheets/d/1xLGNA7lan-ZLC64IlMc-NrsOcEf4fjoTvkYwW9IV0z4/edit?usp=sharing
+* アプリケーション詳細設計　　　　　　　　　　　　　　　　　　　　https://docs.google.com/spreadsheets/d/1vvLLWPpJE3Ec5dG40EenyR6sHrhFJDDDdHaL1rU2xvU/edit?usp=sharing
+* Flows　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　https://drive.google.com/file/d/1w45syS4eBJvnw3lZdqF0x9C34t-U0lIm/view?usp=sharing
+* WBS　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   https://docs.google.com/spreadsheets/d/1VGZLPGPCXisyou4gMPSidGUlBLwkQfdUQgrXN__FE70/edit?usp=sharing
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1yzXiCu7b6jYEOP0iQMOaTZsyXE5FnytcOOQ7_dYOdw8/edit?usp=sharing
